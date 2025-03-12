@@ -9,4 +9,8 @@ resource "aws_cloudwatch_metric_alarm" "metric-alarm" {
   threshold                 = 10
   alarm_description         = "This metric monitors lambda invocation count"
   insufficient_data_actions = []
+
+  alarm_actions = [
+    aws_sns_topic.sns_topic.arn
+  ]
 }
